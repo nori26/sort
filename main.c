@@ -124,8 +124,18 @@ void test_msort()
 	brute_force(wrap_m_sort);
 }
 
+void test_insertion_sort()
+{
+	puts("============================");
+	puts("====== insertion_sort ======");
+	puts("============================");
+	test_sort(insertion_sort);
+	brute_force(insertion_sort);
+}
+
 int main()
 {
 	test_qsort();
 	test_msort();
+	test_insertion_sort();
 }

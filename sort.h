@@ -3,5 +3,6 @@
 
 int  m_sort(int *begin, int *end);
 void q_sort(int *begin, int *end);
+void insertion_sort(int *begin, int *end);
 
 #endif
