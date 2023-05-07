@@ -1,0 +1,14 @@
+#全て無視
+*
+
+#指定した対象が別階層にあっても追跡させる
+!**/
+
+#指定した対象を追跡
+!.gitignore
+!.editorconfig
+!.clang-format
+!*.c
+!*.h
+!Makefile
+!*.mk
