@@ -32,7 +32,7 @@ static void msort_recursive(int *begin, int *end, int *buf)
 
 int m_sort(int *begin, int *end)
 {
-	int *p = malloc((end- begin) * sizeof(int));
+	int *p = malloc((end - begin) * sizeof(int));
 	if (!p) {
 		return -1;
 	}
