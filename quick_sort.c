@@ -1,6 +1,12 @@
 #include <stddef.h>
 #include <stdio.h>
 
+typedef struct s_boundary
+{
+	int *left_end;
+	int *right_begin;
+} t_boundary;
+
 static void swap(int *a, int *b)
 {
 	int tmp = *a;
@@ -27,11 +33,8 @@ static int *select_pivot(int *begin, int *end)
 	return begin + avg % size;
 }
 
-void q_sort(int *begin, int *end)
+static t_boundary partition_by_pivot(int *begin, int *end)
 {
-	if (begin == end) {
-		return;
-	}
 	int *left  = begin;
 	int *right = end - 1;
 	int *pivot = right;
@@ -46,6 +49,15 @@ void q_sort(int *begin, int *end)
 		swap(left, right);
 	}
 	swap(pivot, left);
-	q_sort(begin, left);
-	q_sort(left + 1, end);
+	return (t_boundary){.left_end = left, .right_begin = left + 1};
+}
+
+void q_sort(int *begin, int *end)
+{
+	if (begin == end) {
+		return;
+	}
+	t_boundary b = partition_by_pivot(begin, end);
+	q_sort(begin, b.left_end);
+	q_sort(b.right_begin, end);
 }
