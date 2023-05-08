@@ -19,11 +19,11 @@ static unsigned abs(int n)
 
 static int *select_pivot(int *begin, int *end)
 {
-	size_t   size = end - begin;
-	int     *a    = begin;
-	int     *b    = begin + size / 2;
-	int     *c    = end - 1;
-	unsigned avg  = abs((*a + *b + *c) / 3);
+	size_t   size  = end - begin;
+	int     *front = begin;
+	int     *mid   = begin + size / 2;
+	int     *back  = end - 1;
+	unsigned avg   = abs((*front + *mid + *back) / 3);
 	return begin + avg % size;
 }
 
