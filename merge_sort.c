@@ -32,11 +32,11 @@ static void msort_recursive(int *begin, int *end, int *buf)
 
 int m_sort(int *begin, int *end)
 {
-	int *p = malloc((end - begin) * sizeof(int));
-	if (!p) {
+	int *buf = malloc((end - begin) * sizeof(int));
+	if (!buf) {
 		return -1;
 	}
-	msort_recursive(begin, end, p);
-	free(p);
+	msort_recursive(begin, end, buf);
+	free(buf);
 	return 0;
 }
